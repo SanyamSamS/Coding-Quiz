@@ -7,3 +7,37 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <button id="highscore-btn">View Highscores</button>
+        <div id="timer">Time: <span id="time-left">60</span> </div>
+    </header>
+
+    <main>
+        <section class="start-screen">
+            <h2> Coding Quiz Challenge! </h2>
+            <p>Test your skills in this timed coding quiz.</p>
+        </section>
+
+        <section  class="quiz-screen">
+            <h3>Question 1</h3>
+            <ul class="choices">
+              <li><button>Option 1</button></li>
+              <li><button>Option 2</button></li>
+              <li><button>Option 3</button></li>
+              <li><button>Option 4</button></li>
+            </ul>
+        </section>
+
+        <section class="end-screen">
+            <h4>All done!</h4>
+            <p>Your final score is: <span id="final-score">0</span></p>
+            <label for="iniials">Enter your initials:</label> <input type="text" id="initials" maxlength="3">
+            <button id="submit-button">Submit</button>
+        </section>
+
+    </main>
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>

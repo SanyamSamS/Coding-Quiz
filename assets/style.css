@@ -1,0 +1,67 @@
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header Styling */
+header {
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*Highscore button */
+#highscore-btn {
+    background-color: lightgray;
+    border: solid blue;
+}
+
+/* Count down timer */
+#timer {
+    background-color: lightgray;
+    margin-right: 20px;
+    color: black;
+}
+
+/* Section styling */
+section {
+    max-width: 80%;
+    margin-top: 15vh;
+    border: solid;
+    border-width: 2px;
+    padding: 5vw;
+    border-radius: 30px;
+    border-color: lightgray;
+    box-shadow: 10px 5px 5px lightgray;
+  }
+
+ /* Start screen styling  */
+.start-screen {
+    display: block;
+ }
+
+ /* Quiz screen styling */
+.quiz-screen {
+    display: none;
+ }
+
+  /* End screen styling */
+.end-screen {
+    display: none;
+ }
+
+ /* Submit Button Styling */
+.submit-button {
+    background-color: lightgray;
+    border: solid blue;
+ }
+
+ /* Button hover effect */
+button:hover {
+    background-color: #0056b3;
+  }
