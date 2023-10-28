@@ -55,6 +55,12 @@ section {
     display: none;
  }
 
+/* Highscores screen styling */
+.highscores-screen {
+    display: none;
+ }
+
+
  /* Submit Button Styling */
 .submit-button {
     background-color: lightgray;
