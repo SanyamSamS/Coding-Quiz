@@ -15,10 +15,11 @@ header {
     align-items: center;
 }
 
-/*Highscore button */
-#highscore-btn {
-    background-color: lightgray;
+/* Button styling */
+button {
+    background-color: none;
     border: solid blue;
+    border-radius: 6px;
 }
 
 /* Count down timer */
@@ -31,7 +32,7 @@ header {
 /* Section styling */
 section {
     max-width: 80%;
-    margin-top: 15vh;
+    margin: 15vh;
     border: solid;
     border-width: 2px;
     padding: 5vw;
@@ -41,22 +42,22 @@ section {
   }
 
  /* Start screen styling  */
-.start-screen {
+#start-screen {
     display: block;
  }
 
  /* Quiz screen styling */
-.quiz-screen {
+#quiz-screen {
     display: none;
  }
 
   /* End screen styling */
-.end-screen {
+#end-screen {
     display: none;
  }
 
 /* Highscores screen styling */
-.highscores-screen {
+#highscores-screen {
     display: none;
  }
 
@@ -71,3 +72,8 @@ section {
 button:hover {
     background-color: #0056b3;
   }
+
+/* Unordered list styling */
+ul li {
+    list-style-type: none;
+}
