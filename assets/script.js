@@ -127,9 +127,23 @@ function endQuiz() {
 
 
 // Show high scores functions
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
 function showHighScores() {
-    var highScores = JSON.parse(localStorage.getItem("highScores"));
     var highScoresList = document.getElementById("highscores-list");
+
+  
+        highScores.forEach(function(scoreData) { 
+            var li = document.createElement("li");
+            li.textContent = `${scoreData.initials}: ${scoreData.score}`;
+            highScoresList.appendChild(li);
+        }
+        );
+
+
+    // Display highscore screen 
+    endScreen.style.display = "none";
+    highscoreScreen.style.display = "block";
 }
 
 // Go back to quiz function 
