@@ -178,7 +178,6 @@ function endQuiz() {
         localStorage.setItem("highScores", JSON.stringify(highScores));
         console.log(highScores);
         
-        storeHighScores
         displayHighscoreScreen();
         
     })
@@ -189,6 +188,8 @@ function endQuiz() {
 function storeHighScores() {
     var highScoresList = document.getElementById("highscores-list");
     highScoresList.innerHTML = '';
+
+    var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
         highScores.forEach(function(scoreData) { 
             var li = document.createElement("li");
@@ -202,6 +203,8 @@ function storeHighScores() {
 var goBackButton = document.getElementById("go-back");
 goBackButton.addEventListener("click", function() {
     startScreen.style.display = "block";
+    quizScreen.style.display = "none";
+    endScreen.style.display = "none";
     highscoreScreen.style.display = "none";
     currentQuestion = 0;
     timeLeft = 60;
@@ -214,3 +217,6 @@ clearHighscoresButton.addEventListener("click", function() {
     localStorage.removeItem('highscores');
     highScoresList.innerHTML = '';
 })
+
+// Execute high score storage
+storeHighScores();
