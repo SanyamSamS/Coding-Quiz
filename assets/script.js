@@ -39,6 +39,17 @@ var questions = [
     }
 ];
 
+// Display highscore screen function
+function displayHighscoreScreen() {
+    startScreen.style.display = "none"; 
+    quizScreen.style.display = "none";
+    endScreen.style.display = "none";
+    highscoreScreen.style.display = "block";
+}
+
+// View highscores button
+highscoreButton.addEventListener("click", displayHighscoreScreen)
+
 
 // Start quiz function 
 startButton.addEventListener("click", startQuiz)
@@ -110,14 +121,6 @@ function calculateScore() {
     return score;
 }
 
-// Display highscore screen
-function displayHighscoreScreen() {
-    startScreen.style.display = "none"; 
-    quizScreen.style.display = "none";
-    endScreen.style.display = "none";
-    highscoreScreen.style.display = "block";
-}
-
 // End quiz function 
 function endQuiz() {
     clearInterval(timer); // Ends timer
@@ -147,13 +150,15 @@ function endQuiz() {
         localStorage.setItem("highScores", JSON.stringify(highScores));
         console.log(highScores);
         
+        storeHighScores
         displayHighscoreScreen();
+        
     })
 }
 
 
 // Show high scores functions
-function showHighScores() {
+function storeHighScores() {
     var highScoresList = document.getElementById("highscores-list");
 
         highScores.forEach(function(scoreData) { 
@@ -162,10 +167,6 @@ function showHighScores() {
             highScoresList.appendChild(li);
         }
         );
-        
-    // // Display highscore screen 
-    // endScreen.style.display = "none";
-    // highscoreScreen.style.display = "block";
 }
 
 // Go back to quiz function 
