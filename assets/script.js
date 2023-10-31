@@ -4,7 +4,7 @@ var highscoreButton = document.getElementById("highscore-button")
 var startScreen = document.getElementById("start-screen")
 var quizScreen = document.getElementById("quiz-screen")
 var endScreen = document.getElementById("end-screen")
-var highscoreScreen = document.getElementById("highscore-screen")
+var highscoreScreen = document.getElementById("highscores-screen")
 
 var currentQuestion = 0;
 var timeLeft = 60;
@@ -110,7 +110,13 @@ function calculateScore() {
     return score;
 }
 
-
+// Display highscore screen
+function displayHighscoreScreen() {
+    startScreen.style.display = "none"; 
+    quizScreen.style.display = "none";
+    endScreen.style.display = "none";
+    highscoreScreen.style.display = "block";
+}
 
 // End quiz function 
 function endQuiz() {
@@ -123,30 +129,47 @@ function endQuiz() {
 
     // Update score text 
     document.getElementById("final-score").textContent = totalScore;
+
+    // Submit score 
+    var submitButton = document.getElementById('submit-button');
+    submitButton.addEventListener("click", function() {
+        var initials = document.getElementById("initials").value;
+        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+       
+        if (!Array.isArray(highScores)) {
+            highScores = [];
+        }
+
+        highScores.push({ 
+            initials: initials, 
+            score: totalScore 
+        });
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        console.log(highScores);
+        
+        displayHighscoreScreen();
+    })
 }
 
 
 // Show high scores functions
-var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
 function showHighScores() {
     var highScoresList = document.getElementById("highscores-list");
 
-  
         highScores.forEach(function(scoreData) { 
             var li = document.createElement("li");
             li.textContent = `${scoreData.initials}: ${scoreData.score}`;
             highScoresList.appendChild(li);
         }
         );
-
-
-    // Display highscore screen 
-    endScreen.style.display = "none";
-    highscoreScreen.style.display = "block";
+        
+    // // Display highscore screen 
+    // endScreen.style.display = "none";
+    // highscoreScreen.style.display = "block";
 }
 
 // Go back to quiz function 
+
 
 
 // Clear high scores function 
