@@ -13,29 +13,54 @@ var timer;
 // Quiz questions
 var questions = [
     {
-        question: "Q1",
-        choices: ["1", "2", "3", "4"],
+        question: "How is a JavaScript put into an HTML file",
+        choices: [
+        "<js>",
+        "<javascript>",
+        "<scripting>", 
+        "<script>"
+        ],
+        answer: 3 
+    },
+    {
+        question: "Which is not a comparison operator?",
+        choices: [
+            "===",
+            "!",
+            ">", 
+            "<"
+            ],
         answer: 1 
     },
     {
-        question: "Q2",
-        choices: ["1", "2", "3", "4"],
-        answer: 1 
+        question: "How does a FOR loop start?",
+        choices: [
+            "for i= 1 to 5",
+            "for (i = 0; <= 2)",
+            "for (i <= 4; i++)", 
+            "for (i = 0; i <= 5; i++)"
+            ],
+        answer: 3 
     },
     {
-        question: "Q3",
-        choices: ["1", "2", "3", "4"],
-        answer: 1 
+        question: "How are comments added in JavaScript",
+        choices: [
+            "// Comment",
+            "<!--Comment-->",
+            "*Comment*", 
+            "(Comment)"
+            ],
+        answer: 0 
     },
     {
-        question: "Q4",
-        choices: ["1", "2", "3", "4"],
-        answer: 1 
-    },
-    {
-        question: "Q5",
-        choices: ["1", "2", "3", "4"],
-        answer: 1 
+        question: "Which operator is used to assign a value",
+        choices: [
+            "*",
+            "X",
+            "-", 
+            "="
+            ],
+        answer: 3 
     }
 ];
 
@@ -80,11 +105,11 @@ function showQuestion() {
         var currentQuestionEl = questions[currentQuestion];
 
         // Update question text
-        var questionEl = document.querySelector("#quiz-screen h3");
+        var questionEl = document.getElementById("question-text");
         questionEl.textContent = currentQuestionEl.question;
 
         // Update options text
-        var optionButtons = document.querySelectorAll("#quiz-screen .option-button");
+        var optionButtons = document.querySelectorAll(".option-button");
 
         // Event listener for each option button
         optionButtons.forEach(function (button, index) {
@@ -160,6 +185,7 @@ function endQuiz() {
 // Show high scores functions
 function storeHighScores() {
     var highScoresList = document.getElementById("highscores-list");
+    highScoresList.innerHTML = '';
 
         highScores.forEach(function(scoreData) { 
             var li = document.createElement("li");
@@ -170,7 +196,18 @@ function storeHighScores() {
 }
 
 // Go back to quiz function 
-
-
+var goBackButton = document.getElementById("go-back");
+goBackButton.addEventListener("click", function() {
+    startScreen.style.display = "block";
+    highscoreScreen.style.display = "none";
+    currentQuestion = 0;
+    timeLeft = 60;
+    userAnswers = []; 
+});
 
 // Clear high scores function 
+var clearHighscoresButton = document.getElementById('clear-highscores')
+clearHighscoresButton.addEventListener("click", function() {
+    localStorage.removeItem('highscores');
+    highScoresList.innerHTML = '';
+})
