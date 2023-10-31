@@ -110,6 +110,9 @@ function showQuestion() {
 
         // Update options text
         var optionButtons = document.querySelectorAll(".option-button");
+        for (var i = 0; i <currentQuestionEl.choices.length; i++) {
+            optionButtons[i].textContent = currentQuestionEl.choices[i]
+        }
 
         // Event listener for each option button
         optionButtons.forEach(function (button, index) {
